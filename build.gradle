@@ -1,0 +1,19 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "java"
+}
+
+group = "com.theuran"
+version = "1.0"
+
+repositories {
+    mavenCentral()
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+}
+
+dependencies {
+    shadow "com.google.code.gson:gson:2.13.2"
+}

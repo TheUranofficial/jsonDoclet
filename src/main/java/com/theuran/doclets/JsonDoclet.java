@@ -25,6 +25,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class JsonDoclet implements Doclet {
+    public static String spaceDelimiter = "  ";
+
     @Override
     public void init(Locale locale, Reporter reporter) {
     }
@@ -261,7 +263,7 @@ public class JsonDoclet implements Doclet {
         JsonWriter jsonWriter = new JsonWriter(writer);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        jsonWriter.setIndent("    ");
+        jsonWriter.setIndent(JsonDoclet.spaceDelimiter);
         gson.toJson(object, jsonWriter);
 
         return writer.toString();
